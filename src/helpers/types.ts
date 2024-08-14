@@ -83,6 +83,15 @@ export function wrapWithTypeOptions<T extends GraphQLType>(
   return gqlType as T;
 }
 
+const removeUndefinedFields = (obj: any) => {
+  for (const key in obj) {
+    if (obj[key] === undefined) {
+      // eslint-disable-next-line no-param-reassign
+      delete obj[key];
+    }
+  }
+};
+
 const simpleTypes: Function[] = [String, Boolean, Number, Date, Array, Promise];
 export function convertToType(Target: any, data?: object): object | undefined {
   // skip converting undefined and null
@@ -106,7 +115,9 @@ export function convertToType(Target: any, data?: object): object | undefined {
     return data.map(item => convertToType(Target, item));
   }
 
-  return Object.assign(new Target(), data);
+  const target = new Target();
+  removeUndefinedFields(target);
+  return Object.assign(target, data);
 }
 
 export function getEnumValuesMap<T extends object>(enumObject: T) {
