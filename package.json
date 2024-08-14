@@ -80,7 +80,7 @@
     "clean:build": "npx shx rm -rf ./build",
     "clean:build:benchmarks": "npx shx rm -rf ./benchmarks/build",
     "clean:coverage": "npx shx rm -rf ./coverage",
-    "prepublishOnly": "npm run build && npm run gen:readme",
+    "prepublishOnly": "npm run build",
     "pretest": "npm run clean:coverage",
     "test": "npx jest --verbose --coverage",
     "test:watch": "npx jest --watch",
@@ -93,10 +93,6 @@
     "fix:format": "npx prettier --write .",
     "fix:lint": "npx eslint --fix .",
     "fix:markdown": "npx markdownlint --fix \"**/*.md\"",
-    "gen:docs": "npx ts-node ./scripts/markdown.ts --on docs",
-    "gen:readme": "npx ts-node ./scripts/markdown.ts --on readme",
-    "gen:sponsorkit": "npx sponsorkit --width=320 --dir=./images --name=github-sponsors",
-    "postgen:sponsorkit": "npx shx cp ./images/github-sponsors.svg ./website/static/img/github-sponsors.svg",
     "prepare": "npx ts-patch install -s && npx husky install"
   },
   "peerDependencies": {
