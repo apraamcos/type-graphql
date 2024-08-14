@@ -1,6 +1,6 @@
 {
-  "name": "type-graphql",
-  "version": "2.0.0-rc.2",
+  "name": "@apraamcos/type-graphql",
+  "version": "2.0.0",
   "private": false,
   "description": "Create GraphQL schema and resolvers with TypeScript, using classes and decorators!",
   "keywords": [
@@ -19,7 +19,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MichalLytek/type-graphql.git"
+    "url": "https://github.com/apraamcos/type-graphql.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "funding": [
     {
@@ -187,9 +190,5 @@
   },
   "engines": {
     "node": ">= 20.11.1"
-  },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
   }
 }
