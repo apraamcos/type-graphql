@@ -11,7 +11,7 @@ export function AuthMiddleware(
 ): MiddlewareFn {
   return async (action, next) => {
     let accessGranted: boolean;
-    if (authChecker.prototype) {
+    if (authChecker.prototype && Object.keys(authChecker.prototype).length !== 0) {
       const authCheckerInstance = await container.getInstance(authChecker, action);
       accessGranted = await authCheckerInstance.check(action, roles);
     } else {
