@@ -120,7 +120,7 @@ export function applyMiddlewares(
     } else {
       const currentMiddleware = middlewares[currentIndex];
       // Arrow function or class
-      if (currentMiddleware.prototype !== undefined) {
+      if (currentMiddleware.prototype && Object.keys(currentMiddleware.prototype).length !== 0) {
         const middlewareClassInstance = await container.getInstance(
           currentMiddleware as MiddlewareClass<any>,
           resolverData,
