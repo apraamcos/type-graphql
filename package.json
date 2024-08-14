@@ -1,6 +1,6 @@
 {
   "name": "@apraamcos/type-graphql",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": false,
   "description": "Create GraphQL schema and resolvers with TypeScript, using classes and decorators!",
   "keywords": [
