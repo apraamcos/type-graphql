@@ -5,7 +5,6 @@ import {
   type TypeValue,
   type TypeValueThunk,
 } from "@/decorators/types";
-import { NoExplicitTypeError } from "@/errors";
 import { ensureReflectMetadataExists } from "@/metadata/utils";
 import { bannedTypes } from "./returnTypes";
 
@@ -62,7 +61,17 @@ export function findType({
   }
 
   if (!returnTypeFunc && (!metadataDesignType || bannedTypes.includes(metadataDesignType))) {
-    throw new NoExplicitTypeError(prototype.constructor.name, propertyKey, parameterIndex, argName);
+    let errorMessage =
+      `Unable to infer GraphQL type from TypeScript reflection system. ` +
+      `You need to provide explicit type for `;
+    if (argName) {
+      errorMessage += `argument named '${argName}' of `;
+    } else if (parameterIndex !== undefined) {
+      errorMessage += `parameter #${parameterIndex} of `;
+    }
+    errorMessage += `'${propertyKey}' of '${prototype.constructor.name}' class.`;
+    // eslint-disable-next-line no-console
+    console.error(errorMessage);
   }
 
   if (returnTypeFunc) {
