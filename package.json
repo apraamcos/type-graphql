@@ -78,7 +78,6 @@
     "test:ci": "npx jest --verbose --coverage --ci --forceExit --runInBand",
     "release": "npm version --message \"release: %s\"",
     "version": "npm run --prefix ./website new-release --release=$npm_package_version && git add -A .",
-    "docs": "npm run start --prefix website",
     "fix": "npx npm-run-all --npm-path npm \"fix:*\"",
     "fix:format": "npx prettier --write .",
     "fix:lint": "npx eslint --fix .",
