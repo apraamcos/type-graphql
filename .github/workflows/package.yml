@@ -15,8 +15,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@apraamcos"
+          registry-url: "https://registry.npmjs.org"
       - name: Setup Git Configs
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -26,14 +25,8 @@ jobs:
       - name: Increase version number
         run: npm version patch
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.CJ_TOKEN }}
       - name: Publish
         run: npm publish --public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Push
-        run: |
-          git push
-          git push --tags
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.CJ_TOKEN }}
