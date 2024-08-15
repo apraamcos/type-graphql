@@ -1,6 +1,6 @@
 {
   "name": "@apraamcos/type-graphql",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "private": false,
   "description": "Create GraphQL schema and resolvers with TypeScript, using classes and decorators!",
   "keywords": [
@@ -80,7 +80,6 @@
     "pretest:ci": "npm run clean:coverage",
     "test:ci": "npx jest --verbose --coverage --ci --forceExit --runInBand",
     "release": "npm version --message \"release: %s\"",
-    "version": "npm run --prefix ./website new-release --release=$npm_package_version && git add -A .",
     "docs": "npm run start --prefix website",
     "fix": "npx npm-run-all --npm-path npm \"fix:*\"",
     "fix:format": "npx prettier --write .",
