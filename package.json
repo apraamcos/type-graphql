@@ -79,8 +79,7 @@
     "fix": "npx npm-run-all --npm-path npm \"fix:*\"",
     "fix:format": "npx prettier --write .",
     "fix:lint": "npx eslint --fix .",
-    "fix:markdown": "npx markdownlint --fix \"**/*.md\"",
-    "prepare": "npx ts-patch install -s && npx husky install"
+    "fix:markdown": "npx markdownlint --fix \"**/*.md\""
   },
   "repository": {
     "type": "git",
