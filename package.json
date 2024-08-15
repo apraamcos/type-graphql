@@ -51,9 +51,6 @@
   "scripts": {
     "prebuild": "npm run clean:build && npm run check:version",
     "build": "npx tsc --build ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.typings.json",
-    "postbuild": "npx shx rm ./build/typings/shim.d.ts && npx shx cp ./src/shim.ts ./build/typings && npx ts-node ./scripts/package.json.ts",
-    "prebuild:benchmarks": "npm run clean:build:benchmarks",
-    "build:benchmarks": "npx tsc --build ./benchmarks/tsconfig.json",
     "check": "npx npm-run-all --npm-path npm \"check:*\"",
     "check:benchmarks": "npx tsc --project ./benchmarks/tsconfig.json --noEmit",
     "check:examples": "npx tsc --project ./examples/tsconfig.json --noEmit",
@@ -86,10 +83,6 @@
     "fix:format": "npx prettier --write .",
     "fix:lint": "npx eslint --fix .",
     "fix:markdown": "npx markdownlint --fix \"**/*.md\"",
-    "gen:docs": "npx ts-node ./scripts/markdown.ts --on docs",
-    "gen:readme": "npx ts-node ./scripts/markdown.ts --on readme",
-    "gen:sponsorkit": "npx sponsorkit --width=320 --dir=./images --name=github-sponsors",
-    "postgen:sponsorkit": "npx shx cp ./images/github-sponsors.svg ./website/static/img/github-sponsors.svg",
     "prepare": "npx ts-patch install -s && npx husky install"
   },
   "repository": {
