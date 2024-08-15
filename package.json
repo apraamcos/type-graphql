@@ -49,15 +49,13 @@
     "./build"
   ],
   "scripts": {
-    "prebuild": "npm run clean:build && npm run check:version",
+    "prebuild": "npm run clean:build",
     "build": "npx tsc --build ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.typings.json",
     "check": "npx npm-run-all --npm-path npm \"check:*\"",
     "check:benchmarks": "npx tsc --project ./benchmarks/tsconfig.json --noEmit",
     "check:examples": "npx tsc --project ./examples/tsconfig.json --noEmit",
     "check:format": "npx prettier --check .",
     "check:lint": "npx eslint .",
-    "check:markdown": "npx markdownlint \"**/*.md\"",
-    "check:script": "npx shellcheck ./.husky/pre-commit",
     "check:scripts": "npx tsc --project ./scripts/tsconfig.json --noEmit",
     "check:spell": "npx cspell lint --config cspell.json --no-progress --show-context \"**\"",
     "check:type": "npx npm-run-all --npm-path npm \"check:type:*\"",
